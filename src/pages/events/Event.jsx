@@ -1,12 +1,12 @@
-import React , {useEffect , useState , useContext} from 'react'
-import data from "../../data/events.json"
-import EventCard from "./EventCard"
+import React , {useEffect , useState} from 'react';
+import data from "../../data/events.json";
+import EventCard from "./EventCard";
+import "./event.css";
 
 
 const Event = () => {
     const [events, setEvents] = useState([])
     const [loading , setLoading] = useState(true)
-    const event = useContext(EventCard);
     useEffect(() => {
         const getData = () => {
             setEvents(data)
@@ -15,7 +15,7 @@ const Event = () => {
         setLoading(false)
     }, [])
   return (
-    <div>
+    <div className='list-event d-flex flex-wrap list-event'>
         {loading && <p>Loading...</p>}
         {!loading && 
                 events.map((event) => (
